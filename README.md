@@ -18,12 +18,19 @@ Utel::Balance
     Utel::Balance.vas
     => "Internet:3G 1572602.0Kb,Universalnyi 144140.0Kb,Nat.rouming 0.0Kb;0.0SMS po Ukraini;0v mezhah Ukrainy;0na inshi mobilni Ukrainy"
 
+Текущий оператор
+----------------
+
+    Utel::Operator.name
+    => "UTEL3G�"
+
 Или же кастомным скриптом
 ---------------------------
 
     $ ruby balance.rb
     Vash balans:zagal'nyi 46,06; paketnyi 0,00; dodatkovyi 0,00 hrn.Perevirka dodatkovykh poslug *121#
     Internet:3G 1572602.0Kb,Universalnyi 144140.0Kb,Nat.rouming 0.0Kb;0.0SMS po Ukraini;0v mezhah Ukrainy;0na inshi mobilni Ukrainy
+    UTEL3G�
 
 TODO
 ----

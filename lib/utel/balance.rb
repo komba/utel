@@ -19,7 +19,7 @@ module Utel
     private
       # @param [String] number USSD number service
       def get_balance number
-        File.open("/dev/ttyUSB2", "w+") do |f|
+        File.open(Utel::DEVICE, "w+") do |f|
           f.write "AT+CUSD=1,#{Utel::Pdu.encode(number)},15\r\n"
           parse_result f
         end
@@ -37,6 +37,7 @@ module Utel
             end
           end
         end
+        out
       end
   end
 end
