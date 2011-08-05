@@ -30,5 +30,14 @@ module Utel
       end
       out
     end
+
+    def self.decimal_semi_octets number
+      reversed = ''
+      number.to_s.split('').each_slice(2) do |pair|
+        a,b = pair
+        reversed << (b.nil? ? "F" : b) << a
+      end
+      reversed
+    end
   end
 end
