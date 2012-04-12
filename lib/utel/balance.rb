@@ -1,24 +1,20 @@
 module Utel
   class Balance
-    def self.summary
-      new.summary
-    end
-
-    def self.vas
-      new.vas
+    class << self
+      [:summary, :vas].each{|method| define_method(method) { new.send(method) }}
     end
 
     def summary
-      get_balance "*100#"
+      call_ussd "*100#"
     end
 
     def vas
-      get_balance "*121#"
+      call_ussd "*121#"
     end
 
     private
       # @param [String] number USSD number service
-      def get_balance number
+      def call_ussd number
         File.open(Utel::DEVICE, "w+") do |f|
           f.write "AT+CUSD=1,#{Utel::Pdu.encode(number)},15\r\n"
           parse_result f
